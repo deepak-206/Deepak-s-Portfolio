@@ -9,6 +9,28 @@ html {
     scroll-behavior: smooth;
 }
 
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: 12px;
+    top: 12px;
+    width: auto;
+    height: auto;
+    padding: 10px 12px;
+    background: #38bdf8;
+    color: #0f172a;
+    border-radius: 8px;
+    z-index: 1001;
+    font-weight: 700;
+}
+
 body {
     line-height: 1.6;
     background: #0f172a;
@@ -78,6 +100,12 @@ section {
 .nav-links a:hover,
 .nav-links a.active {
     color: #38bdf8;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 3px;
 }
 
 .hero {
@@ -372,5 +400,19 @@ footer {
 
     .hero-highlights {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
